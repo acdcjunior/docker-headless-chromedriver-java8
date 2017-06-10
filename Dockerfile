@@ -25,13 +25,18 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
 # chromedriver https://sites.google.com/a/chromium.org/chromedriver/downloads
 RUN \
+    apt-get update && apt-get install -y unzip && \
     LATEST_CHROMEDRIVER_VERSION=$(wget -qO- http://chromedriver.storage.googleapis.com/LATEST_RELEASE) && \
     mkdir -p /opt/chromedriver-$LATEST_CHROMEDRIVER_VERSION && \
     wget https://chromedriver.storage.googleapis.com/${LATEST_CHROMEDRIVER_VERSION}/chromedriver_linux64.zip -O /tmp/chromedriver_linux64.zip && \
     unzip -qq /tmp/chromedriver_linux64.zip -d /opt/chromedriver-$LATEST_CHROMEDRIVER_VERSION && \
     rm /tmp/chromedriver_linux64.zip && \
     chmod +x /opt/chromedriver-$LATEST_CHROMEDRIVER_VERSION/chromedriver && \
-    ln -fs /opt/chromedriver-$LATEST_CHROMEDRIVER_VERSION/chromedriver /usr/local/bin/chromedriver
+    ln -fs /opt/chromedriver-$LATEST_CHROMEDRIVER_VERSION/chromedriver /usr/local/bin/chromedriver && \
+    apt-get purge --auto-remove -y unzip && \
+    apt-get clean && \
+    apt-get autoremove && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Restore base image's user (run Chrome non-privileged)
 USER chrome
