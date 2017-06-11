@@ -16,6 +16,7 @@ https://bugs.chromium.org/p/chromedriver/issues/detail?id=1772
 
 
 Also: https://github.com/SeleniumHQ/docker-selenium/issues/429#issuecomment-296379624
+# The comment above is the most promising.
 
 -----
 
