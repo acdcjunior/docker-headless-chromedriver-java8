@@ -5,9 +5,11 @@ See: https://hub.docker.com/r/justinribeiro/chrome-headless/
 
 This dockerfile adds chromedriver + oracle java 8 to the above image.
 
+**This Dockerfile works, but is not good enough for me right now because I need an X display (I need to use `sendKeys`).**
 
---
-Issues:
+------
+
+# Issues:
 
 > org.openqa.selenium.WebDriverException: unknown error: an X display is required for keycode conversions, consider using Xvfb
 
@@ -16,7 +18,7 @@ https://bugs.chromium.org/p/chromedriver/issues/detail?id=1772
 
 
 Also: https://github.com/SeleniumHQ/docker-selenium/issues/429#issuecomment-296379624
-# The comment above is the most promising.
+#### The comment above is the most promising.
 
 -----
 
