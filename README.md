@@ -83,6 +83,8 @@ Sample: https://github.com/bufferings/sandbox-gebheadlesschrome/blob/21578879209
 
 ----
 
-This one worked OK (https://github.com/yukinying/chrome-headless-browser-docker):
+**This one worked OK without changes** (https://github.com/yukinying/chrome-headless-browser-docker):
 
     docker run -it --rm --name chrome --shm-size=1024m --cap-add=SYS_ADMIN --entrypoint=/usr/bin/google-chrome-unstable yukinying/chrome-headless-browser --headless --disable-gpu --dump-dom https://www.facebook.com
+
+I guess I just need to add xvfb to it.
