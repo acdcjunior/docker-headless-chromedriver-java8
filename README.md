@@ -15,6 +15,8 @@ Chrome headless still has problems when using `sendKeys()` without an X display 
 https://bugs.chromium.org/p/chromedriver/issues/detail?id=1772
 
 
+Also: https://github.com/SeleniumHQ/docker-selenium/issues/429#issuecomment-296379624
+
 -----
 
 
@@ -74,3 +76,10 @@ According to [ripper2hl](https://gist.github.com/addyosmani/5336747#gistcomment-
 
 Dockerfiles using chromedriver: https://github.com/search?l=Dockerfile&q=chromedriver++LATEST_RELEASE+&type=Code&utf8=%E2%9C%93
 Sample: https://github.com/bufferings/sandbox-gebheadlesschrome/blob/215788792092db0d18cf66eb064dc2621292919c/Dockerfile
+
+
+----
+
+This one worked OK (https://github.com/yukinying/chrome-headless-browser-docker):
+
+    docker run -it --rm --name chrome --shm-size=1024m --cap-add=SYS_ADMIN --entrypoint=/usr/bin/google-chrome-unstable yukinying/chrome-headless-browser --headless --disable-gpu --dump-dom https://www.facebook.com
